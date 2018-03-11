@@ -1,0 +1,10 @@
+<navigator class="media-box" wx:for="{{ entities }}" wx:key="{{ item.khcph }}">
+  <view class="media-box_bd">
+    <view class="media-box__title">
+      {{ item.khxm }} {{ item.khcph }} {{ item.sqsj }}
+    </view>
+    <view class="media-box__desc">
+    {{ item.sqdh }} {{ item.sqsj }}
+    </view>
+  </view>
+</navigator>

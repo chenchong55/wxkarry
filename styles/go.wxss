@@ -1,0 +1,21 @@
+.container {
+  padding: 0;
+	color: #2e2e2e;
+	font-size: 35rpx;
+  background: #f8f8f8;
+}
+
+.container .content .content-item {
+  margin: 15px 15px 15px 15px;
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 42rpx;
+  font-weight: bold;
+}
+
+.image > image {
+  width: 100%;
+}

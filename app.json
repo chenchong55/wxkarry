@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/where/where",
+    "pages/jianding/jianding",
+    "pages/go/go",
+    "pages/weixiu/weixiu",
+    "pages/me/me",
+    "pages/posts/show"
+  ],
+  "window": {
+    "navigationBarTitleText": "卓越DMS",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#ededed"
+  },
+  "tabBar": {
+    "selectedColor": "#000000",
+    "borderStyle": "white",
+    "backgroundColor": "#ededed",
+    "list": [
+
+
+      {
+        "text": "出发",
+        "pagePath": "pages/go/go",
+        "iconPath": "assets/icons/io.png",
+        "selectedIconPath": "assets/icons/io-active.png"
+      },
+      {
+        "text": "鉴定",
+        "pagePath": "pages/jianding/jianding",
+        "iconPath": "assets/icons/web.png",
+        "selectedIconPath": "assets/icons/web-active.png"
+      },
+      {
+        "text": "维修",
+        "pagePath": "pages/weixiu/weixiu",
+        "iconPath": "assets/icons/wts.png",
+        "selectedIconPath": "assets/icons/wts-active.png"
+      },
+      {
+        "text": "现场",
+        "pagePath": "pages/where/where",
+        "iconPath": "assets/icons/event.png",
+        "selectedIconPath": "assets/icons/event-active.png"
+      },
+
+
+      {
+        "text": "我的",
+        "pagePath": "pages/me/me",
+        "iconPath": "assets/icons/face.png",
+        "selectedIconPath": "assets/icons/face-active.png"
+      }
+
+    ]
+  },
+  "debug": false
+}

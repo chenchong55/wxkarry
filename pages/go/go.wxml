@@ -1,0 +1,44 @@
+<view class="container">
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="content">
+    <view style="display:flex;" class="content-item">
+      <label>救援车牌号：</label>
+      <input type="text" name="jycph" placeholder="必填" />
+    </view>
+    <view style="display:flex;" class="content-item">
+      <label class="text-item">救援车VIN：</label>
+      <input type="text" name="vin"  />
+    </view>
+
+    <view style="display:flex;" class="content-item">
+      <label class="text-item">救援车前里程：</label>
+      <input type="text" name="lc" placeholder="必填"/>
+    </view>
+
+    <view style="display:flex;" class="content-item">
+      <label class="text-item">驾驶员：</label>
+      <input type="text" name="jsy" placeholder="必填"/>
+    </view>
+
+    <view style="display:flex;" class="content-item">
+      <label class="text-item">维修人员：</label>
+      <input type="text" name="wxry" placeholder="必填"/>
+    </view>
+
+    <view style="display:flex;" class="content-item">
+      <label class="text-item">外出方式：</label>
+      <input type="text" name="wcfs"  />
+    </view>
+
+    <view style="display:flex;" class="content-item">
+      <label class="text-item">外出原因：</label>
+      <input type="text" name="wc"  />
+    </view>
+
+  </view>
+    <button class="btn_login"  formType="submit">保存</button>
+</form>
+<view class="image">
+  <image src="/assets/images/landscape.png"></image>
+</view>
+</view>
