@@ -1,8 +1,11 @@
+<view class="toptips toptips_warn" wx:if="{{ showMessage }}">
+  {{ message }}
+</view>
 <view class="cells__title">服务站号</view>
 <view class="cells cells_after-title">
   <view class="cell cell_input">
     <view class="cell_db">
-      <input name="fwzh" class="input" focus placeholder="请输入服务站号"/>
+      <input name="fwzh" bindinput="onInputFwzh" class="input" focus placeholder="请输入服务站号"/>
     </view>
   </view>
 </view>
@@ -11,7 +14,7 @@
 <view class="cells cells_after-title">
   <view class="cell cell_input">
     <view class="cell_db">
-      <input name="fch" class="input" focus placeholder="请输入分厂号"/>
+      <input name="fch" bindinput="onInputFch" class="input" focus placeholder="请输入分厂号"/>
     </view>
   </view>
 </view>
@@ -20,7 +23,7 @@
 <view class="cells cells_after-title">
   <view class="cell cell_input">
     <view class="cell_db">
-      <input name="gly" class="input" focus placeholder="请输入管理员"/>
+      <input name="czymc" bindinput="onInputGly" class="input" focus placeholder="请输入管理员"/>
     </view>
   </view>
 </view>
@@ -29,11 +32,11 @@
 <view class="cells cells_after-title">
   <view class="cell cell_input">
     <view class="cell_db">
-      <input class="input" password placeholder="请输入密码"/>
+      <input name="pwd" class="input" bindinput="onInputPassword" password placeholder="请输入密码"/>
     </view>
   </view>
 </view>
 
 <view class="btn-area">
-  <button class="btn" type="primary">登  录</button>
+  <button class="btn" type="primary" bindtap="onTapSubmitButton">登  录</button>
 </view>
