@@ -47,8 +47,6 @@
         "iconPath": "assets/icons/event.png",
         "selectedIconPath": "assets/icons/event-active.png"
       },
-
-
       {
         "text": "我的",
         "pagePath": "pages/me/me",

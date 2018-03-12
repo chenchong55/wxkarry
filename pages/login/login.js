@@ -1,3 +1,7 @@
+const app = getApp()
+
+const { setJWT } = app
+
 const API_BASE = 'http://sanbao.karryauto.cn/KarryShouhou/mobile_json/'
 const API_ROUTE = 'loginAction.action'
 

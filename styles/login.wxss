@@ -1,0 +1,5 @@
+input {
+ padding: 1px;
+ background: #ffffff;
+ margin: 1px;
+}
