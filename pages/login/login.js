@@ -96,7 +96,7 @@ Page({
       }else{
         setJWT(response.data)
         wx.switchTab({
-              url: '../go/go'
+              url: '../me/me'
        })
       }
     }

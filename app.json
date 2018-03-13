@@ -1,11 +1,12 @@
 {
   "pages": [
+
+    "pages/me/me",
     "pages/login/login",
     "pages/where/where",
     "pages/jianding/jianding",
     "pages/go/go",
     "pages/weixiu/weixiu",
-    "pages/me/me",
     "pages/posts/show"
   ],
   "window": {
