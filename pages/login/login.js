@@ -13,6 +13,7 @@ Page({
     fch:'',
     showMessage: false,
     message:'',
+    imgwidth: 750, 
     slider: [
       {picUrl: '/assets/images/1.jpeg'},
       {picUrl: '/assets/images/2.jpg'},
