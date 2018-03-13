@@ -99,10 +99,18 @@ Page({
 
 
       }else{
-        setJWT(response.data)
+        setJWT(data)
+        console.log(data.data.czymc)
+        app.globalData.czymc = data.data.czymc
         wx.switchTab({
               url: '../me/me'
        })
+
+       wx.showToast({
+        title: '成功',
+        icon: 'success',
+        duration: 1500
+      })
       }
     }
     })

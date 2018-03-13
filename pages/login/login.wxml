@@ -49,5 +49,5 @@
 </view>
 
 <view class="btn-area">
-  <button class="btn" type="primary" bindtap="onTapSubmitButton">登  录</button>
+  <button class="btn" type="primary" style="background-color: black;" hover-class="btn-hover" bindtap="onTapSubmitButton">登  录</button>
 </view>

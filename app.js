@@ -3,7 +3,7 @@ App({
     const jwt = wx.getStorageSync('jwt')
     if (jwt) {
       this.globalData.jwt = JSON.parse(jwt)
-
+      console.log(jwt);
     }
   },
   onShow (options) {
@@ -19,6 +19,7 @@ App({
   },
   globalData: {
     fwzh:'00000',
+    czymc:'',
     jwt:{}
   }
 })

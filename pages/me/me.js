@@ -3,6 +3,12 @@ const app = getApp()
 Page({
   data: {
   },
-  onLoad () {
+  onLoad (options) {
+    console.log(options);
+    const cyzmc_ = app.globalData.czymc
+    this.setData({
+      czymc
+    })
+
   }
 })
