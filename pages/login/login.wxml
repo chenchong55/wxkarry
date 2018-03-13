@@ -3,10 +3,10 @@
 </view>
 
 <view class="swiper-view">
-  <swiper class="swiper" indicator-color="rgba(255, 255, 255, .8)" autoplay="auto" inverval="5000" style="height:400rpx;" indicator-dots="{{ true }}">
+  <swiper class="swiper" indicator-color="rgba(255, 255, 255, .8)" autoplay="auto" inverval="5000" style="height:400rpx;width:100%;" indicator-dots="{{ true }}">
     <block wx:for="{{ slider }}" wx:key="unique">
       <swiper-item>
-        <image src="{{ item.picUrl }}" class="img" style="height:400rpx;" mode="aspectFill"></image>
+        <image src="{{ item.picUrl }}" class="img" style="height:400rpx;width:100%;width:100%;" mode="aspectFill"></image>
       </swiper-item>
     </block>
   </swiper>
