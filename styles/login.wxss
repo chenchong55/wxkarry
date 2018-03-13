@@ -5,11 +5,9 @@ input {
 }
 
 .swiper {
-  height: 200rpx;
   width: 100%;
 }
 
 .img {
-  height: 200rpx;
   width: 100%;
 }
