@@ -1,5 +1,12 @@
 input {
  padding: 1px;
  background: #ffffff;
- margin: 1px;
+}
+
+.swiper-container {
+  height: 80vh;
+}
+
+.swiper-container swiper {
+  height: 100vh;
 }

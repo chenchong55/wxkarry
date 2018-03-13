@@ -1,6 +1,17 @@
 <view class="toptips toptips_warn" wx:if="{{ showMessage }}">
   {{ message }}
 </view>
+
+<view class="swiper-container">
+  <swiper class="swiper" indicator-color="rgba(255, 255, 255, .8)" autoplay="auto" inverval="5000" indicator-dots="{{ true }}">
+    <block wx:for="{{ slider }}" wx:key="unique">
+      <swiper-item>
+        <image src="{{ item.picUrl }}" class="img" mode="widthFix"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
 <view class="cells__title">服务站号</view>
 <view class="cells cells_after-title">
   <view class="cell cell_input">

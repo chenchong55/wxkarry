@@ -12,7 +12,12 @@ Page({
     czymc:'',
     fch:'',
     showMessage: false,
-    message:''
+    message:'',
+    slider: [
+      {picUrl: '/assets/images/1.jpeg'},
+      {picUrl: '/assets/images/2.jpg'},
+      {picUrl: '/assets/images/3.jpg'}
+    ]
   },
 
 
