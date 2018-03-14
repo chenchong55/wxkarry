@@ -1,6 +1,17 @@
 <view class="container">
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class="content">
+  <view style="display:flex;" class="content-item">
+    <label>当前位置：</label>
+    <input type="text" name="location" style="width:180px;" value="{{ address }}" />
+  </view>
+  <view style="display:flex;" class="content-item">
+    <label>目的地：</label>
+    <input type="text" name="locationGo" style="width:180px;" value="{{ address }}" />
+
+    <image src="{{ imgUrl }}" style="width:20px;height:20px;" bindtap="Location_where"/>
+
+  </view>
     <view style="display:flex;" class="content-item">
       <label>救援车牌号：</label>
       <input type="text" name="jycph" placeholder="必填" />
