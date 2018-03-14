@@ -1,6 +1,7 @@
 const app = getApp()
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.js')
 var qqmapsdk
+var timer
 
 Page({
   formSubmit: function(e) {
@@ -11,16 +12,48 @@ Page({
       '../../assets/icons/location/where.png'
     ],
     wd:'',
-    jd:''
+    jd:'',
+    address:'',
+    addressList:[]
   },
   Location_where(){
-    // wx.request(){
-    //   header: {
-    //       'content-type': 'get'
-    //   },
-    //   url: `http://apis.map.qq.com/ws/direction/v1/driving/?from=${wd+","+jd}`,
-    // }
-  },
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success: function(res) {
+        var latitude = res.latitude
+        var longitude = res.longitude
+        wx.openLocation({
+          latitude: latitude,
+          longitude: longitude,
+         scale: 28
+    })
+  }
+})
+},
+bindKeyInput:(e) => {
+  console.log(e);
+  var that = this
+  qqmapsdk = new QQMapWX({
+    key: 'NU6BZ-GBTH6-GZLSW-MSY6G-457DS-2JFGV' // 必填
+  }),
+  qqmapsdk.getSuggestion({
+    keyword: e.detail.value,
+    success: (res) =>{
+        let addressList = res.data
+        this.setData({
+            addressList:res.data
+        });
+
+    },
+    fail: function (res) {
+        console.log(res);
+    },
+    complete: function (res) {
+      console.log(res);
+    }
+  })
+},
+
 
   onLoad () {
     var that = this
@@ -29,7 +62,7 @@ Page({
       key: 'NU6BZ-GBTH6-GZLSW-MSY6G-457DS-2JFGV' // 必填
     })
     qqmapsdk.getSuggestion({
-      
+
     }),
     wx.getLocation({
       type: 'wgs84',
@@ -48,7 +81,7 @@ Page({
          console.log(address);
 
           that.setData({
-            address,
+            address: address,
             wd:latitude_1,
             jd:longitude_1
           })
@@ -56,5 +89,17 @@ Page({
       })
       }
     })
+    // Countdown()
+
+
+
   }
-})
+});
+
+// 计时器函数
+// function Countdown() {
+// timer = setTimeout(function () {
+//   console.log("----Countdown----");
+//   Countdown();
+// }, 1000*10);
+// };
