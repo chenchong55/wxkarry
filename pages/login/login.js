@@ -108,7 +108,7 @@ Page({
        wx.showToast({
         title: '成功',
         icon: 'success',
-        duration: 1500
+        duration: 1000
       })
       }
     }

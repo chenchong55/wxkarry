@@ -1,4 +1,5 @@
 const app = getApp()
+const { removeLogin } = app
 
 Page({
   data: {
@@ -12,6 +13,18 @@ Page({
       czymc,
       fwzjc
     })
+  },
+  onTapLogoutButton(){
+    removeLogin()
+    this.setData({
+      czymc:'',
+      fwzjc:''
+    })
+
+    wx.navigateTo({
+          url: '/pages/login/login'
+        })
 
   }
+
 })

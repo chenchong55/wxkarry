@@ -10,15 +10,15 @@
       <view class="badge">{{ czymc || '未登录' }}</view>
     </view>
     <view class="profile__item">{{ fwzjc }}</view>
-    
+
 
   </view>
   <view class="profile__action">
     <view class="btn-area" wx:if="{{ fwzjc }}">
-      <button class="btn" plain="{{true}}" type="warn">退 出</button>
+      <button class="btn" plain="{{true}}" type="warn" bindtap="onTapLogoutButton">退 出</button>
     </view>
-    <view class="btn-area" wx:if="{{ !fwzjc }}">
-      <button class="btn"  style="background-color:white;color:black;" type="primary">登 录</button>
-    </view>
+<!--    <view class="btn-area" wx:if="{{ !fwzjc }}">
+      <button class="btn"  style="background-color:white;color:black;" type="primary" bindtap="onTapLoginButton">登 录</button>
+    </view> -->
   </view>
 </view>
