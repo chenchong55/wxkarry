@@ -2,12 +2,15 @@ const app = getApp()
 
 Page({
   data: {
+
   },
-  onLoad (options) {
-    console.log(options);
-    const cyzmc_ = app.globalData.czymc
+  onShow (options) {
+
+    var czymc = app.globalData.czymc
+    var fwzjc = app.globalData.fwzjc
     this.setData({
-      czymc
+      czymc,
+      fwzjc
     })
 
   }

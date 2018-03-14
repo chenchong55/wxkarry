@@ -99,9 +99,8 @@ Page({
 
 
       }else{
-        setJWT(data)
-        console.log(data.data.czymc)
         app.globalData.czymc = data.data.czymc
+        app.globalData.fwzjc = data.data.fwzjc
         wx.switchTab({
               url: '../me/me'
        })
