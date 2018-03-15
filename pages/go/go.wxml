@@ -7,8 +7,11 @@
   </view>
   <view style="display:flex;" class="content-item">
     <label>目的地：</label>
-    <input type="text" name="locationGo" auto-focus style="width:180px;" bindinput="bindKeyInput" value="{{ address }}" />
-
+    <input type="text" id="locationGo" name="locationGo" auto-focus style="width:180px;" bindinput="bindKeyInput" value="{{ address }}" >
+      <view wx:for="{{ addressList }}" wx:key="insque">
+        <text>{{ item.address }}</text>
+      </view>
+    </input>
     <image src="{{ imgUrl }}" style="width:20px;height:20px;padding-right:5px;" bindtap="Location_where"/>
 
   </view>
