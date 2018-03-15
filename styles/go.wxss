@@ -12,8 +12,8 @@
 }
 
 label {
-  font-size: 42rpx;
-  font-weight: bold;
+  font-size: 39rpx;
+  margin:5px 5px 5px 10px;
 }
 
 .image > image {

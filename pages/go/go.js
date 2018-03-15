@@ -1,8 +1,12 @@
 const app = getApp()
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.min.js')
+var Base64 = require('../../libs/base64.modified')
 var qqmapsdk
 var timer
 var that
+
+const API_BASE = 'http://localhost:8080/KarryShouhou/mobile_json/'
+const API_ROUTE = 'uploadImageAction.action'
 
 Page({
   formSubmit: function(e) {
@@ -16,6 +20,7 @@ Page({
     jd: '',
     address: '',
     city: '',
+    images: [],
     addressList: []
   },
   Location_where() {
@@ -85,10 +90,55 @@ Page({
         }
       })
       // Countdown()
+  },
 
+  //增加图片上传文件
+  onChooseImage() {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      sourceType: ['album', 'camera'],
+      success: (response) => {
+        const images = response.tempFilePaths
 
+        this.setData({
+          images
+        })
 
+        images.map((filePath, index) => {
+          const upLoadTask = wx.uploadFile({
+            url: `${ API_BASE }/${ API_ROUTE }?jycfdImg=` +
+              filePath,
+            filePath,
+            name: 'file',
+            success: (response) => {
+              console.log(response);
+            }
+          })
+
+          upLoadTask.onProgressUpdate((response) => {
+            const progress = [...this.data.progress]
+            progress[index] = response.progress
+
+            this.setData({
+              progress
+            })
+          })
+        })
+
+      }
+    })
+  },
+
+  onPreviewImage(event) {
+    wx.previewImage({
+      current: event.target.dataset.src,
+      urls: this.data.images
+    })
   }
+
+
+
 });
 
 // 计时器函数
