@@ -5,16 +5,18 @@
   background: #f8f8f8;
 }
 
-.container .content .content-item {
-  margin: 15px 15px 15px 15px;
-  border-bottom: 1px solid #efefef;
-  margin-bottom: 10px;
-}
-
 label {
   font-size: 39rpx;
   margin:5px 5px 5px 10px;
+
 }
+
+.container .content .content-item {
+  margin: 10px 15px 1px 15px;
+  border-bottom: 1px solid #efefef;
+}
+
+
 
 .image > image {
   width: 100%;

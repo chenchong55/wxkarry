@@ -8,7 +8,7 @@
   <view style="display:flex;margin-left:" class="content-item">
     <label>目的地:</label>
     <view class="section_where">
-      <input placeholder="输入关键字" style="height:10px;" auto-focus type="text" bindinput="bindKeyInput" value="{{ inputValue }}"/>
+      <input placeholder="输入关键字" style="height:10px;width:190px;" auto-focus type="text" bindinput="bindKeyInput" value="{{ inputValue }}"/>
       <!--<scroll-view scroll-y="true" class="scrollview">-->
       <view wx:for="{{ sugList }}" wx:key="suglist" class="sug_info">
         <view id="{{ item.name }}" class="itemview" bindtap="where_nr" >{{ item.name }}</view>
@@ -20,7 +20,7 @@
   </view>
     <view style="display:flex;" class="content-item">
       <label>救援车牌号:</label>
-      <input type="text" name="jycph" placeholder="必填" />
+      <input type="text" name="jycph" style="margin-bottom:0px;" placeholder="必填" />
     </view>
     <view style="display:flex;" class="content-item">
       <label class="text-item">救援车VIN:</label>
