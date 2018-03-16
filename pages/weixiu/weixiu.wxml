@@ -3,7 +3,7 @@
 <navigator class="media-box" wx:for="{{ entities }}" wx:key="{{ item.wtsh }}">
   <view class="media-box_bd">
     <view class="media-box__title">
-      {{ item.cph }} {{ item.wtsh }} {{ item.zt }}
+      <text style="font-size:18px;">{{ item.cph }}</text> {{ item.wtsh }} {{ item.zt }}
     </view>
     <view class="media-box__desc">
     {{ item.jzrq }} {{ item.jzsj }} {{ item.xllb }}

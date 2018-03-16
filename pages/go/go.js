@@ -10,13 +10,17 @@ const API_BASE = 'http://localhost:8080/KarryShouhou/mobile_json/'
 const API_ROUTE = 'uploadImageAction.action'
 
 Page({
+  onPullDownRefresh: function(){
+    wx.stopPullDownRefresh()
+  },
   formSubmit: function(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
   data: {
     imgUrl: [
-      '../../assets/icons/location/Location.png'
+      '../../assets/icons/location/location.png'
     ],
+    wcjyPic:['https://ws3.sinaimg.cn/large/006tKfTcly1fpey1filp9j30b506uaee.jpg'],
     wd: '',
     jd: '',
     address: '',
@@ -96,6 +100,7 @@ Page({
     qqmapsdk.getSuggestion({
 
       }),
+
       wx.getLocation({
         type: 'wgs84',
 

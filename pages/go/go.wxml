@@ -1,55 +1,58 @@
+<view class="picContainer">
+  <image style="width: 760rpx; height: 430rpx; background-color: #eeeeee;" src="{{ wcjyPic }}" mode="scaleToFill" />
+</view>
 <view class="container">
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class="content">
   <view style="display:flex;" class="content-item">
     <label>当前位置:</label>
-    <input type="text" name="location" style="width:200px;" value="{{ address }}" />
+    <input type="text" class="inputText" name="location" style="width:220px;" value="{{ address }}" />
   </view>
-  <view style="display:flex;margin-left:" class="content-item">
+  <view style="display:flex;" class="content-item">
     <label>目的地:</label>
     <view class="section_where">
-      <input placeholder="输入关键字" style="height:10px;width:190px;" auto-focus type="text" bindinput="bindKeyInput" value="{{ inputValue }}"/>
+      <input placeholder="输入关键字" class="inputText" style="height:15px;width:250px;" auto-focus type="text" bindinput="bindKeyInput" value="{{ inputValue }}"/>
       <!--<scroll-view scroll-y="true" class="scrollview">-->
       <view wx:for="{{ sugList }}" wx:key="suglist" class="sug_info">
         <view id="{{ item.name }}" class="itemview" bindtap="where_nr" >{{ item.name }}</view>
       </view>
     <!--  </scroll-view> -->
       </view>
-    <image src="{{ imgUrl }}" style="width:30px;height:30px;" bindtap="Location_where"/>
+    <image src="{{ imgUrl }}" style="width:18px;height:30px;" bindtap="Location_where"/>
 
   </view>
     <view style="display:flex;" class="content-item">
       <label>救援车牌号:</label>
-      <input type="text" name="jycph" style="margin-bottom:0px;" placeholder="必填" />
+      <input type="text" class="inputText" name="jycph" style="margin-bottom:0px;" placeholder="必填" />
     </view>
     <view style="display:flex;" class="content-item">
       <label class="text-item">救援车VIN:</label>
-      <input type="text" name="vin"  />
+      <input type="text" class="inputText" name="vin"  />
     </view>
 
     <view style="display:flex;" class="content-item">
       <label class="text-item">救援车前里程:</label>
-      <input type="text" name="lc" placeholder="必填"/>
+      <input type="text" class="inputText" name="lc" placeholder="必填"/>
     </view>
 
     <view style="display:flex;" class="content-item">
       <label class="text-item">驾驶员:</label>
-      <input type="text" name="jsy" placeholder="必填"/>
+      <input type="text" class="inputText" name="jsy" placeholder="必填"/>
     </view>
 
     <view style="display:flex;" class="content-item">
       <label class="text-item">维修人员:</label>
-      <input type="text" name="wxry" placeholder="必填"/>
+      <input type="text" class="inputText" name="wxry" placeholder="必填"/>
     </view>
 
     <view style="display:flex;" class="content-item">
       <label class="text-item">外出方式:</label>
-      <input type="text" name="wcfs"  />
+      <input type="text" class="inputText" name="wcfs"  />
     </view>
 
     <view style="display:flex;" class="content-item">
       <label class="text-item">外出原因:</label>
-      <input type="text" name="wc"  />
+      <input type="text" class="inputText" name="wc"  />
     </view>
     <!--上传图片-->
       <view class="cell">
@@ -74,11 +77,10 @@
             </view>
           </view>
         </view>
-
       </view>
 
   </view>
-    <button class="btn_login"  formType="submit">保存</button>
+    <button class="btn_submit" type="primary" formType="submit">保存</button>
 </form>
 <view class="image">
   <image src="/assets/images/landscape.png"></image>
