@@ -1,6 +1,7 @@
 const app = getApp()
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.min.js')
 var Base64 = require('../../libs/base64.modified')
+var bmap = require('../../libs/bmap-wx.min.js')
 var qqmapsdk
 var timer
 var that
@@ -20,6 +21,9 @@ Page({
     jd: '',
     address: '',
     city: '',
+    sugData: '',
+    sugList: '',
+    inputValue: '',
     images: [],
     addressList: []
   },
@@ -37,20 +41,50 @@ Page({
       }
     })
   },
+  // 目的地
   bindKeyInput: function(e) {
     var that = this
-    qqmapsdk = new QQMapWX({
-      key: 'NU6BZ-GBTH6-GZLSW-MSY6G-457DS-2JFGV' // 必填
-    })
-    qqmapsdk.getSuggestion({
-      keyword: e.detail.value,
-      region: that.data.city,
-      success: function(res) {
-        console.log(res.data);
+      // qqmapsdk = new QQMapWX({
+      //   key: 'NU6BZ-GBTH6-GZLSW-MSY6G-457DS-2JFGV' // 必填
+      // })
+      // qqmapsdk.getSuggestion({
+      //   keyword: e.detail.value,
+      //   region: that.data.city,
+      //   success: function(res) {
+      //     console.log(res.data);
+      //     that.setData({
+      //       addressList: res.data
+      //     })
+      //   }
+      // })
+
+    // 新建百度地图对象
+    var BMap = new bmap.BMapWX({
+      ak: 'h3D8BGfHNQ3DszKD4ASZKnCuW7P03isK'
+    });
+    var fail = function(data) {
+      console.log(data)
+    };
+    var success = function(data) {
+        var sugData = '';
+        var arrs = [];
         that.setData({
-          addressList: res.data
+          sugList: data.result
         })
-      }
+      } // 发起suggestion检索请求
+    BMap.suggestion({
+      query: e.detail.value,
+      region: '绍兴',
+      city_limit: true,
+      fail: fail,
+      success: success
+    });
+  },
+  where_nr: function(e) {
+    console.log(e);
+    this.setData({
+      inputValue: e.target.id,
+      sugList: []
     })
   },
   onLoad() {

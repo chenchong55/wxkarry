@@ -19,3 +19,18 @@ label {
 .image > image {
   width: 100%;
 }
+
+.scrollview {
+  height: 60%;
+  position: absolute;
+  top: 260rpx;
+}
+
+.itemview {
+  overflow: scroll;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+  border-bottom: 1px solid #b1b1b1;
+  background-color:rgba(255,255,255,0.8);
+}

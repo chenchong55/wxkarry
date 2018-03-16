@@ -7,11 +7,14 @@
   </view>
   <view style="display:flex;" class="content-item">
     <label>目的地：</label>
-    <input type="text" id="locationGo" name="locationGo" auto-focus style="width:180px;" bindinput="bindKeyInput" value="{{ address }}" >
-      <view wx:for="{{ addressList }}" wx:key="insque">
-        <text>{{ item.address }}</text>
+    <view class="section_where">
+      <input placeholder="输入关键字" style="height:10px;" auto-focus type="text" bindinput="bindKeyInput" value="{{ inputValue }}"/>
+      <scroll-view scroll-y="true" class="scrollview">
+      <view wx:for="{{ sugList }}" class="sug_info">
+        <view id="{{ item.name }}" class="itemview" bindtap="where_nr" >{{ item.name }}</view>
       </view>
-    </input>
+      </scroll-view>
+      </view>
     <image src="{{ imgUrl }}" style="width:20px;height:20px;padding-right:5px;" bindtap="Location_where"/>
 
   </view>
