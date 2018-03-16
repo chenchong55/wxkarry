@@ -15,7 +15,7 @@ Page({
   },
   data: {
     imgUrl: [
-      '../../assets/icons/location/where2.png'
+      '../../assets/icons/location/Location.png'
     ],
     wd: '',
     jd: '',

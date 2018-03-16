@@ -15,7 +15,7 @@
       </view>
     <!--  </scroll-view> -->
       </view>
-    <image src="{{ imgUrl }}" style="width:20px;height:20px;padding-right:5px;" bindtap="Location_where"/>
+    <image src="{{ imgUrl }}" style="width:30px;height:30px;" bindtap="Location_where"/>
 
   </view>
     <view style="display:flex;" class="content-item">
