@@ -1,6 +1,14 @@
-<import src="/templates/spinner.wxml" />
-<import src="/templates/footer.wxml" />
-<navigator class="media-box" wx:for="{{ entities }}" wx:key="{{ item.wtsh }}">
+
+<import src="/pages/wxSearch/wxSearch.wxml"/>
+
+<!--搜索客户车牌号 -->
+<view class="wxSearch-section">
+      <view class="wxSearch-pancel">
+          <input bindinput="wxSearchInput" bindfocus="wxSerchFocus" value="{{wxSearchData.value}}" bindblur="wxSearchBlur" class="wxSearch-input" placeholder="搜索委托书号" />
+          <button class="wxSearch-button" bindtap="wxSearchFn" size="mini" plain="true">搜索</button>
+      </view>
+</view>
+<navigator class="media-box" wx:for="{{ entities }}" wx:key="{{ item.wtsh }}" bindtap="changeHidden">
   <view class="media-box_bd">
     <view class="media-box__title">
       <text style="font-size:18px;">{{ item.cph }}</text> {{ item.wtsh }} {{ item.zt }}
@@ -10,7 +18,9 @@
     </view>
   </view>
 </navigator>
-<template is="spinner" data="{{ isLoading }}" />
+<loading hidden="{{hidden}}">
+        加载中...
+</loading>
 <!-- <view class="footer" >
   <image src="/assets/images/landscape.png"></image>
 </view> -->

@@ -5,22 +5,22 @@ var bmap = require('../../libs/bmap-wx.min.js')
 var qqmapsdk
 var timer
 var that
+var lat
+var lng
 
 const API_BASE = 'http://localhost:8080/KarryShouhou/mobile_json/'
 const API_ROUTE = 'uploadImageAction.action'
 
 Page({
-  onPullDownRefresh: function(){
+  onPullDownRefresh: function() {
     wx.stopPullDownRefresh()
   },
   formSubmit: function(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
   data: {
-    imgUrl: [
-      '../../assets/icons/location/location.png'
-    ],
-    wcjyPic:['https://ws3.sinaimg.cn/large/006tKfTcly1fpey1filp9j30b506uaee.jpg'],
+    imgUrl: '../../assets/icons/location/Location.png',
+    wcjyPic: 'https://ws3.sinaimg.cn/large/006tKfTcly1fpey1filp9j30b506uaee.jpg',
     wd: '',
     jd: '',
     address: '',
@@ -29,24 +29,31 @@ Page({
     sugList: '',
     inputValue: '',
     images: [],
-    addressList: []
+    addressList: [],
+    lat: '',
+    lng: '',
+    name: ''
   },
-  Location_where() {
+  Location_where: function(e) {
+    var latitude = this.data.lat
+    var longitude = this.data.lng
+    var name = this.data.name
+      //console.log(name);
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function(res) {
-        var latitude = res.latitude
-        var longitude = res.longitude
         wx.openLocation({
-          latitude: latitude,
-          longitude: longitude,
-          scale: 28
+          latitude,
+          longitude,
+          city: name,
+            scale: 28
         })
       }
     })
   },
   // 目的地
   bindKeyInput: function(e) {
+    console.log(e);
     var that = this
       // qqmapsdk = new QQMapWX({
       //   key: 'NU6BZ-GBTH6-GZLSW-MSY6G-457DS-2JFGV' // 必填
@@ -85,10 +92,16 @@ Page({
     });
   },
   where_nr: function(e) {
-    console.log(e);
+
+    var lat = e.currentTarget.dataset.lat
+    var lng = e.currentTarget.dataset.lng
+    var address = e.currentTarget.dataset.address
     this.setData({
       inputValue: e.target.id,
-      sugList: []
+      sugList: [],
+      lat,
+      lng,
+      address
     })
   },
   onLoad() {

@@ -2,6 +2,8 @@
 @import 'styles/go.wxss';
 @import 'styles/where.wxss';
 @import 'styles/me.wxss';
+@import 'styles/wxSearch.wxss';
+@import 'styles/weui.wxss';
 
 page {
   background: #f8f8f8;

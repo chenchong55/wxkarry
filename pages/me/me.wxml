@@ -9,7 +9,7 @@
     <view class="profile__item" wx:if="{{ czymc }}">
       <view class="badge">{{ czymc || '未登录' }}</view>
     </view>
-    <view class="profile__item">{{ fwzjc }}</view>
+    <view class="profile__item">{{ fwzjc || '未登录' }}</view>
 
 
   </view>
