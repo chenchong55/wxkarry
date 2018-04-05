@@ -8,14 +8,14 @@ var that
 var lat
 var lng
 
-const API_BASE = 'http://localhost:8080/KarryShouhou/mobile_json/'
-const API_ROUTE = 'uploadImageAction.action'
+const API_BASE = 'http://www.oncegit.top/wp-json'
+const API_ROUTE = 'wp/v2/media'
 
 Page({
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     wx.stopPullDownRefresh()
   },
-  formSubmit: function(e) {
+  formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
   data: {
@@ -34,55 +34,55 @@ Page({
     lng: '',
     name: ''
   },
-  Location_where: function(e) {
+  Location_where: function (e) {
     var latitude = this.data.lat
     var longitude = this.data.lng
     var name = this.data.name
-      //console.log(name);
+    //console.log(name);
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-      success: function(res) {
+      success: function (res) {
         wx.openLocation({
           latitude,
           longitude,
           city: name,
-            scale: 28
+          scale: 28
         })
       }
     })
   },
   // 目的地
-  bindKeyInput: function(e) {
+  bindKeyInput: function (e) {
     console.log(e);
     var that = this
-      // qqmapsdk = new QQMapWX({
-      //   key: 'NU6BZ-GBTH6-GZLSW-MSY6G-457DS-2JFGV' // 必填
-      // })
-      // qqmapsdk.getSuggestion({
-      //   keyword: e.detail.value,
-      //   region: that.data.city,
-      //   success: function(res) {
-      //     console.log(res.data);
-      //     that.setData({
-      //       addressList: res.data
-      //     })
-      //   }
-      // })
+    // qqmapsdk = new QQMapWX({
+    //   key: 'NU6BZ-GBTH6-GZLSW-MSY6G-457DS-2JFGV' // 必填
+    // })
+    // qqmapsdk.getSuggestion({
+    //   keyword: e.detail.value,
+    //   region: that.data.city,
+    //   success: function(res) {
+    //     console.log(res.data);
+    //     that.setData({
+    //       addressList: res.data
+    //     })
+    //   }
+    // })
 
     // 新建百度地图对象
     var BMap = new bmap.BMapWX({
       ak: 'h3D8BGfHNQ3DszKD4ASZKnCuW7P03isK'
     });
-    var fail = function(data) {
+    var fail = function (data) {
       console.log(data)
     };
-    var success = function(data) {
-        var sugData = '';
-        var arrs = [];
-        that.setData({
-          sugList: data.result
-        })
-      } // 发起suggestion检索请求
+    var success = function (data) {
+      var sugData = '';
+      var arrs = [];
+      that.setData({
+        sugList: data.result
+      })
+    } // 发起suggestion检索请求
     BMap.suggestion({
       query: e.detail.value,
       region: '绍兴',
@@ -91,7 +91,7 @@ Page({
       success: success
     });
   },
-  where_nr: function(e) {
+  where_nr: function (e) {
 
     var lat = e.currentTarget.dataset.lat
     var lng = e.currentTarget.dataset.lng
@@ -112,7 +112,7 @@ Page({
     })
     qqmapsdk.getSuggestion({
 
-      }),
+    }),
 
       wx.getLocation({
         type: 'wgs84',
@@ -126,7 +126,7 @@ Page({
               latitude: latitude_1,
               longitude: longitude_1
             },
-            success: function(addressRes) {
+            success: function (addressRes) {
               var address = addressRes.result.formatted_addresses
                 .recommend;
               console.log(address);
@@ -141,41 +141,53 @@ Page({
           })
         }
       })
-      // Countdown()
+    // Countdown()
   },
 
   //增加图片上传文件
   onChooseImage() {
+    var images = this.data.images;
     wx.chooseImage({
-      count: 1,
+      count: 9 - images.length,
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success: (response) => {
-        const images = response.tempFilePaths
-
+        var imagessrc = response.tempFilePaths;
+          images = images.concat(imagessrc); // 使用concat方法可以让数组可以在原来的基础上增加内容
         this.setData({
           images
         })
 
         images.map((filePath, index) => {
-          const upLoadTask = wx.uploadFile({
-            url: `${ API_BASE }/${ API_ROUTE }?jycfdImg=` +
-              filePath,
-            filePath,
-            name: 'file',
-            success: (response) => {
-              console.log(response);
-            }
-          })
+          //console.log(this.data.images.length);
+          for (var i = 0; i< this.data.images.length;i++) {
+            const upLoadTask = wx.uploadFile({
+              url: `${API_BASE}/${API_ROUTE}`,
+              filePath:filePath[i],
+              name: 'file',
 
-          upLoadTask.onProgressUpdate((response) => {
-            const progress = [...this.data.progress]
-            progress[index] = response.progress
-
-            this.setData({
-              progress
+              success: (response) => {
+                
+                this.setData({
+                  
+                })
+              },
+              fail: (response) => {
+                 this.setData({
+                  
+                 })
+              }
             })
-          })
+
+            upLoadTask.onProgressUpdate((response) => {
+              const progress = [...this.data.progress]
+              progress[index] = response.progress
+
+              this.setData({
+                progress
+              })
+            })
+          }
         })
 
       }

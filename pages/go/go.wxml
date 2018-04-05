@@ -56,22 +56,24 @@
         <view class="cell_bd">
           <view class="uploader">
             <view class="uploader__hd">
-              <view class="uploader__info">{{ images.length }} / 1</view>
+              <view class="uploader__info">{{ images.length }} / 9</view>
             </view>
 
             <view class="uploader__bd">
-              <view class="uploader__files">
+              <view class="uploader__files" >
                 <block wx:for="{{ images }}" wx:key="*this">
-                  <view class="uploader__file" bindtap="onPreviewImage" data-src="{{ item }}">
-                    <image class="uploader_img" src="{{ item }}" mode="aspectFill"/>
-                    <progress percent="{{progress[index]}}" />
+                  <view class="uploader__file" bindtap="onPreviewImage" >
+                    <image class="uploader__img" data-id="{{ index }}" src="{{ item }}" mode="aspectFill"/>
+                    <progress percent="{{ progress[index] }}" />
                   </view>
                 </block>
-              </view>
-              <view class="uploader__input-box">
+              </view> 
+
+              <view wx:if="{{ images.length < 9}}" class="uploader__input-box">
                 <view class="uploader__input" bindtap="onChooseImage"></view>
               </view>
             </view>
+
           </view>
         </view>
       </view>
